@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>Contact</h1>
+<hr class="mb-4">
+<form action="/contact" method="POST" class="d-block">
+    {{ form.csrf_token }}
+
+    <div class="pb-4">
+        {{ form.name.label }}
+        <br>
+        {{ form.name(size=20) }}
+    </div>
+    
+    <div class="pb-4">
+        {{ form.email.label }}
+        <br>
+        {{ form.email() }}
+    </div>
+    
+    <div class="pb-4">
+        {{ form.subject.label }}
+        <br>
+        {{ form.subject(size=100) }}
+    </div>
+
+    <div class="pb-4">
+        {{ form.message.label }}
+        <br>
+        {{ form.message() }}
+    </div>
+    
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}
